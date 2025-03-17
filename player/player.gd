@@ -5,7 +5,7 @@ const SPEED = 300.0
 @export var anim : AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
-	var velocity = Vector2.ZERO # The player's movement vector.
+	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
