@@ -164,20 +164,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t03j"]
-size = Vector2(13, 17)
+size = Vector2(8, 14)
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "body", "timer_invicible") groups=["player"]]
 script = ExtResource("1_rkbax")
 anim = NodePath("AnimatedSprite2D")
+body = NodePath("CollisionShape2D")
+timer_invicible = NodePath("Timer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -10)
+position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_hg6s5")
-animation = &"walk_down"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.583511
+offset = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -8.5)
 shape = SubResource("RectangleShape2D_8t03j")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
