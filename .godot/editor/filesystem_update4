@@ -1,4 +1,9 @@
-res://player/player.tscn
 res://level/main.tscn
+res://coin/spawn_coin.gd
+res://player/player.tscn
 res://enemy/enemy.tscn
 res://coin/coin.tscn
+res://enemy/spawn_enemy.gd
+res://Interface/gameplay.tscn
+res://Interface/gameplay.gd
+res://icon/font1.tres

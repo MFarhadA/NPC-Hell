@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://c87dxugnyltuo"]
+[gd_scene load_steps=10 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_414cb"]
+[ext_resource type="PackedScene" uid="uid://c8qrnqsmvbvbw" path="res://Interface/gameplay.tscn" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://dhobi0m2sukes" path="res://player/player.tscn" id="2_0ukcc"]
 [ext_resource type="PackedScene" uid="uid://dg43jrc41qvh8" path="res://enemy/enemy.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://ds1t8mqafwh86" path="res://enemy/spawn_enemy.gd" id="4_qh04p"]
@@ -78,6 +79,10 @@ sources/0 = SubResource("TileSetAtlasSource_0ukcc")
 
 [node name="main" type="Node2D"]
 
+[node name="gameplay" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_klgnm")]
+z_index = 999
+player = NodePath("../player")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -96,12 +101,13 @@ z_index = 3
 position = Vector2(241, 387)
 scale = Vector2(3, 3)
 
-[node name="spawn_enemy" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "enemy_container")]
+[node name="spawn_enemy" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "enemy_container", "coin_spawner")]
 script = ExtResource("4_qh04p")
 enemy_scene = ExtResource("3_nt2wp")
 spawn_area = Vector2(480, 736)
 spawn_timer = NodePath("spawn_timer")
 enemy_container = NodePath("enemy_container")
+coin_spawner = NodePath("../spawn_coin")
 
 [node name="spawn_timer" type="Timer" parent="spawn_enemy"]
 autostart = true
@@ -110,6 +116,7 @@ autostart = true
 z_index = 2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="spawn_enemy" groups=["player"]]
+visible = false
 position = Vector2(243, 368)
 scale = Vector2(30, 42.8)
 
