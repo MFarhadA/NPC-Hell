@@ -12,9 +12,12 @@ var is_invincible : bool = false
 @export var body : CollisionShape2D
 @export var timer_invicible : Timer
 
+var star : int
+
 func _ready() -> void:
 	current_health = max_health
 	coin_collected = coin
+	star = 0
 
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2.ZERO
@@ -57,13 +60,11 @@ func _physics_process(delta: float) -> void:
 	
 func take_coin():
 	coin_collected += 1
-	print(coin_collected)
 	
 func take_damage(amount):
 	if is_invincible:
 		return
 	current_health -= amount
-	print(current_health)
 	if current_health <= 0:
 		die()
 	start_invicibility()

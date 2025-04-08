@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func spawn_coin():
 	var x = randf_range(20, 460)
-	var y = randf_range(20, 710)
+	var y = randf_range(50, 660)
 	var spawn_pos = Vector2(x, y)
 	
 	var coin = coin_scene.instantiate()
