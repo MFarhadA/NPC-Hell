@@ -1,10 +1,8 @@
-res://icon/font1.tres
-res://star.tscn
 res://player/player.tscn
+res://icon/font1.tres
 res://level/main.tscn
 res://enemy/enemy.tscn
 res://coin/coin.tscn
 res://Interface/gameplay.tscn
 res://Interface/main_menu.tscn
-res://star.gd
-res://player/player.gd
+res://Interface/main_menu.gd

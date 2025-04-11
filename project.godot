@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NPC Hell"
-run/main_scene="uid://c87dxugnyltuo"
+run/main_scene="uid://do6mrkkn1ht5d"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
