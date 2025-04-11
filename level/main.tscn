@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://c87dxugnyltuo"]
+[gd_scene load_steps=12 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_414cb"]
+[ext_resource type="Script" uid="uid://dft2yopflfkrg" path="res://level/main.gd" id="1_j70lj"]
 [ext_resource type="PackedScene" uid="uid://c8qrnqsmvbvbw" path="res://Interface/gameplay.tscn" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://dhobi0m2sukes" path="res://player/player.tscn" id="2_0ukcc"]
+[ext_resource type="PackedScene" uid="uid://cury3cpqulgmv" path="res://Interface/game_over/game_over.tscn" id="2_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://dg43jrc41qvh8" path="res://enemy/enemy.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://ds1t8mqafwh86" path="res://enemy/spawn_enemy.gd" id="4_qh04p"]
 [ext_resource type="Script" uid="uid://bcep8gkwwnlxk" path="res://coin/spawn_coin.gd" id="5_k8f8b"]
@@ -77,7 +79,10 @@ texture = ExtResource("1_414cb")
 [sub_resource type="TileSet" id="TileSet_nt2wp"]
 sources/0 = SubResource("TileSetAtlasSource_0ukcc")
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_j70lj")
+player = NodePath("player")
+game_over_menu = ExtResource("2_ry1g7")
 
 [node name="gameplay" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_klgnm")]
 z_index = 999
@@ -120,8 +125,9 @@ visible = false
 position = Vector2(243, 368)
 scale = Vector2(30, 42.8)
 
-[node name="spawn_coin" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "coin_container")]
+[node name="spawn_coin" type="Node2D" parent="." node_paths=PackedStringArray("spawn_enemy", "spawn_timer", "coin_container")]
 script = ExtResource("5_k8f8b")
+spawn_enemy = NodePath("../spawn_enemy")
 spawn_timer = NodePath("../spawn_enemy/spawn_timer")
 spawn_area = Vector2(480, 736)
 coin_scene = ExtResource("6_7vc00")

@@ -28,10 +28,6 @@ func _physics_process(delta: float) -> void:
 		anim.flip_h = false
 	else:
 		anim.flip_h = true
-	
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		body.take_damage(1)
 
 func start_moving():
 	var speed = [100, 200, 300].pick_random()

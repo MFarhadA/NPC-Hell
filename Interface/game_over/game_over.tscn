@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cury3cpqulgmv"]
+
+[ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://Interface/menu.tres" id="1_3mx23"]
+[ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="1_kqidc"]
+[ext_resource type="Script" uid="uid://c7p4bgo7xw88o" path="res://Interface/game_over/game_over.gd" id="2_t822b"]
+[ext_resource type="PackedScene" uid="uid://c87dxugnyltuo" path="res://level/main.tscn" id="3_d67jj"]
+[ext_resource type="PackedScene" uid="uid://do6mrkkn1ht5d" path="res://Interface/main_menu.tscn" id="4_4qtur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mx23"]
+font = ExtResource("1_kqidc")
+font_size = 55
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_t822b")
+retry = ExtResource("3_d67jj")
+main_menu = ExtResource("4_4qtur")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 483.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.486275)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 424.0
+offset_bottom = 124.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3mx23")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 565.0
+offset_right = 383.0
+offset_bottom = 655.0
+theme = ExtResource("1_3mx23")
+
+[node name="retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "ULANGI"
+
+[node name="main_menu" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "KEMBALI"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

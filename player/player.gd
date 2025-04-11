@@ -11,15 +11,17 @@ var is_invincible : bool = false
 @export var anim : AnimatedSprite2D
 @export var body : CollisionShape2D
 @export var timer_invicible : Timer
-
-var star : int
+@export var hitbox : Area2D
 
 func _ready() -> void:
 	current_health = max_health
 	coin_collected = coin
-	star = 0
 
 func _physics_process(delta: float) -> void:
+	
+	if current_health == 0:
+		die()
+		
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -57,30 +59,31 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.normalized() * SPEED
 		
 	position += velocity * delta
-	
-func take_coin():
-	coin_collected += 1
-	
-func take_damage(amount):
-	if is_invincible:
-		return
-	current_health -= amount
-	if current_health <= 0:
-		die()
-	start_invicibility()
+
+func take_damage():
+	if current_health > 0:
+		current_health -= 1
+		start_invicibility()
 
 func start_invicibility():
 	is_invincible = true
+	anim.modulate.a = 0.5
+	hitbox.collision_mask = false
 	timer_invicible.start()
-	if is_invincible:
-		anim.modulate.a = 0.5
-		collision_layer = false
-	is_invincible = false
 
 func _on_timer_timeout() -> void:
 	is_invincible = false
 	anim.modulate.a = 1
-	collision_layer = 1
+	hitbox.collision_mask = 1
 
 func die():
 	queue_free()
+
+func _on_coin_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin"):
+		coin_collected += 1
+		area.queue_free()
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		take_damage()

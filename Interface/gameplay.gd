@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 	if player:
 		coin_collected = player.coin_collected
 		current_health = player.current_health
+	else:
+		current_health = 0
 	
 	coin.text = str(coin_collected)
 	health.text = str(current_health)

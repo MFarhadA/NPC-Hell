@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://do6mrkkn1ht5d"]
+[gd_scene load_steps=8 format=4 uid="uid://do6mrkkn1ht5d"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_f1ob2"]
 [ext_resource type="Script" uid="uid://dj4t6r6iggsxi" path="res://Interface/main_menu.gd" id="1_vbcim"]
 [ext_resource type="PackedScene" uid="uid://c87dxugnyltuo" path="res://level/main.tscn" id="2_c8xvl"]
 [ext_resource type="Texture2D" uid="uid://bhwxw24ee1nc3" path="res://icon/logo.png" id="2_tel4v"]
-[ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="3_xyvgp"]
+[ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://Interface/menu.tres" id="5_c8xvl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tel4v"]
 texture = ExtResource("1_f1ob2")
@@ -75,19 +75,6 @@ texture = ExtResource("1_f1ob2")
 [sub_resource type="TileSet" id="TileSet_xyvgp"]
 sources/0 = SubResource("TileSetAtlasSource_tel4v")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyvgp"]
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-
-[sub_resource type="Theme" id="Theme_vbcim"]
-default_font = ExtResource("3_xyvgp")
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0.14902, 0.235294, 0.376471, 1)
-Button/constants/outline_size = 12
-Button/font_sizes/font_size = 35
-Button/fonts/font = ExtResource("3_xyvgp")
-Button/styles/normal = SubResource("StyleBoxEmpty_xyvgp")
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vbcim")
 start = ExtResource("2_c8xvl")
@@ -116,7 +103,7 @@ texture = ExtResource("2_tel4v")
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-theme = SubResource("Theme_vbcim")
+theme = ExtResource("5_c8xvl")
 theme_type_variation = &"a"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]

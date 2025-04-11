@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmjaapsfuni8x"]
+[gd_scene load_steps=10 format=3 uid="uid://bmjaapsfuni8x"]
 
-[ext_resource type="Script" uid="uid://wcje67nseucv" path="res://coin/coin.gd" id="1_el688"]
 [ext_resource type="Texture2D" uid="uid://dvxommhq2rowp" path="res://icon/icon_nb.png" id="1_h8ymi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_el688"]
@@ -55,8 +54,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2u70"]
 
-[node name="coin" type="Area2D"]
-script = ExtResource("1_el688")
+[node name="coin" type="Area2D" groups=["coin"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -68,5 +66,4 @@ frame_progress = 0.413718
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t2u70")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

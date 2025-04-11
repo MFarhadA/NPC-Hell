@@ -28,7 +28,7 @@ func spawn_enemy():
 	enemy_container.add_child(enemy)
 	enemy.start_moving()
 
-func _on_add_spawner():
+func _add_spawner():
 	# Timer baru untuk menambah spawn musuh
 	var new_timer = Timer.new()
 	new_timer.wait_time = spawn_timer.wait_time
