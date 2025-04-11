@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cury3cpqulgmv"]
+[gd_scene load_steps=5 format=3 uid="uid://cury3cpqulgmv"]
 
 [ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://Interface/menu.tres" id="1_3mx23"]
 [ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="1_kqidc"]
-[ext_resource type="Script" uid="uid://c7p4bgo7xw88o" path="res://Interface/game_over/game_over.gd" id="2_t822b"]
-[ext_resource type="PackedScene" uid="uid://c87dxugnyltuo" path="res://level/main.tscn" id="3_d67jj"]
-[ext_resource type="PackedScene" uid="uid://do6mrkkn1ht5d" path="res://Interface/main_menu.tscn" id="4_4qtur"]
+[ext_resource type="Script" uid="uid://dj4t6r6iggsxi" path="res://Interface/main_menu.gd" id="2_t822b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mx23"]
 font = ExtResource("1_kqidc")
@@ -16,8 +14,6 @@ outline_color = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("2_t822b")
-retry = ExtResource("3_d67jj")
-main_menu = ExtResource("4_4qtur")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
