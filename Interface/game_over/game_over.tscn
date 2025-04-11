@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://Interface/menu.tres" id="1_3mx23"]
 [ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="1_kqidc"]
-[ext_resource type="Script" uid="uid://dj4t6r6iggsxi" path="res://Interface/main_menu.gd" id="2_t822b"]
+[ext_resource type="Script" uid="uid://c7p4bgo7xw88o" path="res://Interface/game_over/game_over.gd" id="1_t822b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mx23"]
 font = ExtResource("1_kqidc")
@@ -13,7 +13,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="game_over" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("2_t822b")
+script = ExtResource("1_t822b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
