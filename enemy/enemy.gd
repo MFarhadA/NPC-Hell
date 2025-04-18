@@ -6,6 +6,7 @@ var velocity
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+	
 	if position.x < -20 || position.x > 500:
 		queue_free()
 		

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://do6mrkkn1ht5d"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_f1ob2"]
-[ext_resource type="Script" uid="uid://dj4t6r6iggsxi" path="res://Interface/main_menu.gd" id="1_vbcim"]
+[ext_resource type="Script" uid="uid://c1y3lv5uol3cg" path="res://Interface/main_menu.gd" id="1_vbcim"]
 [ext_resource type="PackedScene" uid="uid://c87dxugnyltuo" path="res://level/main.tscn" id="2_c8xvl"]
 [ext_resource type="Texture2D" uid="uid://bhwxw24ee1nc3" path="res://icon/logo.png" id="2_tel4v"]
 [ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://Interface/menu.tres" id="5_c8xvl"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_414cb"]
-[ext_resource type="Script" uid="uid://dft2yopflfkrg" path="res://level/main.gd" id="1_j70lj"]
+[ext_resource type="Script" uid="uid://cdtef5pprsjd1" path="res://level/main.gd" id="1_j70lj"]
 [ext_resource type="PackedScene" uid="uid://c8qrnqsmvbvbw" path="res://Interface/gameplay.tscn" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://dhobi0m2sukes" path="res://player/player.tscn" id="2_0ukcc"]
 [ext_resource type="PackedScene" uid="uid://cury3cpqulgmv" path="res://Interface/game_over/game_over.tscn" id="2_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://dg43jrc41qvh8" path="res://enemy/enemy.tscn" id="3_nt2wp"]
-[ext_resource type="Script" uid="uid://ds1t8mqafwh86" path="res://enemy/spawn_enemy.gd" id="4_qh04p"]
-[ext_resource type="Script" uid="uid://bcep8gkwwnlxk" path="res://coin/spawn_coin.gd" id="5_k8f8b"]
+[ext_resource type="Script" uid="uid://dqtbcd4thnlly" path="res://enemy/spawn_enemy.gd" id="4_qh04p"]
+[ext_resource type="Script" uid="uid://ckd6pbop11qee" path="res://coin/spawn_coin.gd" id="5_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://bmjaapsfuni8x" path="res://coin/coin.tscn" id="6_7vc00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ukcc"]

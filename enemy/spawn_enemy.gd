@@ -15,7 +15,6 @@ func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
 	
 func _process(delta: float) -> void:
-	# print(spawn_timer.time_left)
 	return
 	
 func spawn_enemy():
