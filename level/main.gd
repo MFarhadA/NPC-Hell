@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 		
 func game_over():
 	var go_game_over = game_over_menu.instantiate()
+	MusicManager.gameover()
 	add_child(go_game_over)
 	return

@@ -82,8 +82,10 @@ func die():
 func _on_coin_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
 		coin_collected += 1
+		MusicManager.pickup()
 		area.queue_free()
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
+		MusicManager.hurt()
 		take_damage()
