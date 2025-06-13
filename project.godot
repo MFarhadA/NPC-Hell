@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://audio/default_bus_layout.tres"
+buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
 [autoload]
 
-MusicManager="*res://audio/audiostreamplayer.tscn"
-Score="*res://score.gd"
+MusicManager="*res://assets/audio/audiostreamplayer.tscn"
+Score="*res://scripts/score.gd"
 
 [display]
 
