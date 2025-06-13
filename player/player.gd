@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var coin : int = 0
+var initial_coin : int = 0
 var coin_collected : int = 0
 
 const SPEED = 300.0
@@ -15,7 +15,7 @@ var is_invincible : bool = false
 
 func _ready() -> void:
 	current_health = max_health
-	coin_collected = coin
+	coin_collected = initial_coin
 
 func _physics_process(delta: float) -> void:
 	

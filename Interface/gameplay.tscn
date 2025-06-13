@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8qrnqsmvbvbw"]
+[gd_scene load_steps=19 format=3 uid="uid://c8qrnqsmvbvbw"]
 
 [ext_resource type="Script" uid="uid://bnjcbkc082k3o" path="res://Interface/gameplay.gd" id="1_hd2a3"]
 [ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="2_5ytfc"]
@@ -133,7 +133,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="gameplay" type="Control" node_paths=PackedStringArray("fps", "coin", "health")]
+[sub_resource type="LabelSettings" id="LabelSettings_6xkum"]
+font = ExtResource("2_5ytfc")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="gameplay" type="Control" node_paths=PackedStringArray("fps", "coin", "health", "top")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,6 +150,7 @@ script = ExtResource("1_hd2a3")
 fps = NodePath("fps")
 coin = NodePath("coin")
 health = NodePath("health")
+top = NodePath("top_coin")
 
 [node name="fps" type="Label" parent="."]
 texture_filter = 1
@@ -191,3 +198,13 @@ scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_jin7i")
 autoplay = "default"
 frame_progress = 0.0865362
+
+[node name="top_coin" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 317.0
+offset_top = 649.0
+offset_right = 462.0
+offset_bottom = 669.0
+text = "HIGHSCORE!"
+label_settings = SubResource("LabelSettings_6xkum")

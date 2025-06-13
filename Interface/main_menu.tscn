@@ -111,7 +111,6 @@ theme = ExtResource("5_c8xvl")
 theme_type_variation = &"a"
 
 [node name="menu" type="VBoxContainer" parent="Control"]
-visible = false
 z_index = 999
 layout_mode = 2
 offset_left = 85.0
@@ -132,6 +131,7 @@ layout_mode = 2
 text = "KELUAR"
 
 [node name="settings" type="VBoxContainer" parent="Control"]
+visible = false
 z_index = 999
 texture_filter = 2
 layout_mode = 2
