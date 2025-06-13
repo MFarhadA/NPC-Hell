@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 		print("free!")
 		player_exist = true
 		game_over()
-		
+	
 func game_over():
 	var go_game_over = game_over_menu.instantiate()
 	MusicManager.gameover()

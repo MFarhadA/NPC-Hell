@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c87dxugnyltuo"]
+[gd_scene load_steps=15 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://tileset/BasicPlains-tileset-Ver.2_by_AxulArt.png" id="1_414cb"]
 [ext_resource type="Script" uid="uid://cdtef5pprsjd1" path="res://level/main.gd" id="1_j70lj"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dqtbcd4thnlly" path="res://enemy/spawn_enemy.gd" id="4_qh04p"]
 [ext_resource type="Script" uid="uid://ckd6pbop11qee" path="res://coin/spawn_coin.gd" id="5_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://bmjaapsfuni8x" path="res://coin/coin.tscn" id="6_7vc00"]
+[ext_resource type="Script" uid="uid://cvineqy5kfosf" path="res://level/menu.gd" id="10_tdkxd"]
+[ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://icon/font.ttf" id="11_fh3di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ukcc"]
 texture = ExtResource("1_414cb")
@@ -79,6 +81,12 @@ texture = ExtResource("1_414cb")
 [sub_resource type="TileSet" id="TileSet_nt2wp"]
 sources/0 = SubResource("TileSetAtlasSource_0ukcc")
 
+[sub_resource type="LabelSettings" id="LabelSettings_epufq"]
+font = ExtResource("11_fh3di")
+font_size = 81
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="main" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_j70lj")
 player = NodePath("player")
@@ -135,5 +143,26 @@ coin_container = NodePath("coin_container")
 
 [node name="coin_container" type="Node2D" parent="spawn_coin"]
 z_index = 1
+
+[node name="menu" type="Node2D" parent="." node_paths=PackedStringArray("pause_menu")]
+process_mode = 3
+script = ExtResource("10_tdkxd")
+pause_menu = NodePath("pause_menu")
+
+[node name="pause_menu" type="CanvasLayer" parent="menu"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="menu/pause_menu"]
+offset_right = 494.0
+offset_bottom = 744.0
+color = Color(0, 0, 0, 0.486275)
+
+[node name="Label" type="Label" parent="menu/pause_menu"]
+offset_left = 71.0
+offset_top = 334.0
+offset_right = 424.0
+offset_bottom = 416.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_epufq")
 
 [connection signal="timeout" from="spawn_enemy/spawn_timer" to="spawn_enemy" method="_on_spawn_timer_timeout"]
