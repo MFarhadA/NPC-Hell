@@ -8,6 +8,8 @@ var max_health : int = 3
 var current_health : int = 3
 var is_invincible : bool = false
 
+var joystick_move : Vector2 = Vector2.ZERO
+
 @export var anim : AnimatedSprite2D
 @export var body : CollisionShape2D
 @export var timer_invicible : Timer
@@ -21,8 +23,20 @@ func _physics_process(delta: float) -> void:
 	
 	if current_health == 0:
 		die()
-		
-	var velocity = Vector2.ZERO
+	
+	var input_vector = Vector2.ZERO
+
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+
+	if joystick_move.length() > 0.1:
+		velocity = joystick_move.normalized() * SPEED
+	else:
+		if input_vector.length() > 0:
+			velocity = input_vector.normalized() * SPEED
+		else:
+			velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -55,10 +69,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		anim.flip_h = true
 	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * SPEED
-		
-	position += velocity * delta
+	move_and_slide()
 
 func take_damage():
 	if current_health > 0:
@@ -89,3 +100,7 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		MusicManager.hurt()
 		take_damage()
+
+
+func _on_virtual_joystick_analogic_change(move: Vector2) -> void:
+	joystick_move = move

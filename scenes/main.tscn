@@ -1,15 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://c87dxugnyltuo"]
+[gd_scene load_steps=17 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://assets/images/tileset.png" id="1_414cb"]
-[ext_resource type="Script" uid="uid://cdtef5pprsjd1" path="res://scripts/main.gd" id="1_j70lj"]
+[ext_resource type="Script" uid="uid://ukhc326vbmma" path="res://scripts/main.gd" id="1_j70lj"]
 [ext_resource type="PackedScene" uid="uid://c8qrnqsmvbvbw" path="res://scenes/gameplay.tscn" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://dhobi0m2sukes" path="res://scenes/player.tscn" id="2_0ukcc"]
 [ext_resource type="PackedScene" uid="uid://cury3cpqulgmv" path="res://scenes/game_over.tscn" id="2_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://dg43jrc41qvh8" path="res://scenes/enemy.tscn" id="3_nt2wp"]
-[ext_resource type="Script" uid="uid://dqtbcd4thnlly" path="res://scripts/spawn_enemy.gd" id="4_qh04p"]
-[ext_resource type="Script" uid="uid://ckd6pbop11qee" path="res://scripts/spawn_coin.gd" id="5_k8f8b"]
+[ext_resource type="Script" uid="uid://dl6wooyba4wrc" path="res://scripts/spawn_enemy.gd" id="4_qh04p"]
+[ext_resource type="Script" uid="uid://dry87w1nuyoph" path="res://scripts/spawn_coin.gd" id="5_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://bmjaapsfuni8x" path="res://scenes/coin.tscn" id="6_7vc00"]
-[ext_resource type="Script" uid="uid://cvineqy5kfosf" path="res://scripts/menu.gd" id="10_tdkxd"]
+[ext_resource type="Script" uid="uid://norkf81vey5a" path="res://scripts/menu.gd" id="10_tdkxd"]
 [ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://assets/fonts/font.ttf" id="11_fh3di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ukcc"]
@@ -86,6 +86,12 @@ font = ExtResource("11_fh3di")
 font_size = 81
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(99, 833)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(667.5, 46)
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_j70lj")
@@ -164,5 +170,23 @@ offset_right = 424.0
 offset_bottom = 416.0
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_epufq")
+
+[node name="collission" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collission"]
+position = Vector2(-49.5, 363.5)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collission"]
+position = Vector2(529, 363.5)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="collission"]
+position = Vector2(244.75, 757)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="collission"]
+position = Vector2(244.75, -23)
+shape = SubResource("RectangleShape2D_eb6dy")
 
 [connection signal="timeout" from="spawn_enemy/spawn_timer" to="spawn_enemy" method="_on_spawn_timer_timeout"]

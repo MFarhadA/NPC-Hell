@@ -25,7 +25,7 @@ func load_volume():
 		$Control/settings/HBoxContainer2/sfx.value = sfx_vol
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), sfx_vol)
 		# mute
-		var mute_vol = config.get_value("audio", "mute_volume", 0)
+		var mute_vol = config.get_value("audio", "mute_volume", false)
 		$Control/settings/mute.button_pressed = mute_vol
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), mute_vol)
 		
