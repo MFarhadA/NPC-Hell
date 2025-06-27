@@ -13,7 +13,9 @@ config_version=5
 config/name="NPC Hell"
 run/main_scene="uid://do6mrkkn1ht5d"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+run/max_fps=120
+boot_splash/show_image=false
+config/icon="uid://oh10qxurlcgt"
 
 [audio]
 

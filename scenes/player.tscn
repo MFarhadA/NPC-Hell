@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://dhobi0m2sukes"]
 
 [ext_resource type="Texture2D" uid="uid://hjg8na1xvy3u" path="res://assets/images/player.png" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://r3m3jd7urvy5" path="res://scripts/player.gd" id="1_rkbax"]
-[ext_resource type="Script" uid="uid://dkpwxuwqteui0" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://c0slrlddvubop" path="res://scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://cmunhpreg4j13" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bc6paavcnnwf6" path="res://addons/virtual_joystick/sprites/stick_pressed.png" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
@@ -201,11 +201,11 @@ shape = SubResource("RectangleShape2D_8t03j")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VirtualJoystick" type="Node2D" parent="CanvasLayer"]
+visible = false
 position = Vector2(238, 613)
 script = ExtResource("3_dqkch")
 zero_at_touch = true
 stick_pressed = ExtResource("4_qlg0r")
-metadata/_custom_type_script = "uid://dkpwxuwqteui0"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="coin_area" to="." method="_on_coin_area_area_entered"]
