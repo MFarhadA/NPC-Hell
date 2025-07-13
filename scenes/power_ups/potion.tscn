@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxvkryb4khdkq"]
+
+[ext_resource type="SpriteFrames" uid="uid://cddy8xlgusotk" path="res://scenes/power_ups/potions.tres" id="1_0y7wo"]
+[ext_resource type="Script" uid="uid://24s3x87gqsy5" path="res://scenes/power_ups/potion.gd" id="1_73nux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owas8"]
+
+[node name="Speed" type="Area2D"]
+script = ExtResource("1_73nux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_0y7wo")
+animation = &"empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_owas8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

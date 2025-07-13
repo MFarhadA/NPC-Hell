@@ -1,9 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 var initial_coin : int = 0
 var coin_collected : int = 0
 
-const SPEED = 300.0
+var speed = INITIAL_SPEED
 var max_health : int = 3
 var current_health : int = 3
 var is_invincible : bool = false
@@ -13,7 +14,10 @@ var joystick_move : Vector2 = Vector2.ZERO
 @export var anim : AnimatedSprite2D
 @export var body : CollisionShape2D
 @export var timer_invicible : Timer
+@export var timer_speed: Timer
 @export var hitbox : Area2D
+
+const INITIAL_SPEED: float = 300.0
 
 func _ready() -> void:
 	current_health = max_health
@@ -30,10 +34,10 @@ func _physics_process(delta: float) -> void:
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	if joystick_move.length() > 0.1:
-		velocity = joystick_move.normalized() * SPEED
+		velocity = joystick_move.normalized() * speed
 	else:
 		if input_vector.length() > 0:
-			velocity = input_vector.normalized() * SPEED
+			velocity = input_vector.normalized() * speed
 		else:
 			velocity = Vector2.ZERO
 	
@@ -82,10 +86,21 @@ func start_invicibility():
 	hitbox.collision_mask = false
 	timer_invicible.start()
 
+func start_speed_increase(increment: float) -> void:
+	speed += increment
+	timer_speed.start()
+
+func start_health_increase(increment: int) -> void:
+	current_health += increment
+
 func _on_timer_timeout() -> void:
+	# Timer Invicibility
 	is_invincible = false
 	anim.modulate.a = 1
 	hitbox.collision_mask = 1
+
+func _on_speed_timer_timeout() -> void:
+	speed = INITIAL_SPEED
 
 func die():
 	queue_free()
