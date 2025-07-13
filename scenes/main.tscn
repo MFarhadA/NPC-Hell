@@ -1,16 +1,20 @@
-[gd_scene load_steps=17 format=4 uid="uid://c87dxugnyltuo"]
+[gd_scene load_steps=21 format=4 uid="uid://c87dxugnyltuo"]
 
 [ext_resource type="Texture2D" uid="uid://c56aswnl5x3ug" path="res://assets/images/tileset.png" id="1_414cb"]
-[ext_resource type="Script" uid="uid://cdtef5pprsjd1" path="res://scripts/main.gd" id="1_j70lj"]
+[ext_resource type="Script" uid="uid://ckup2qec73mbb" path="res://scripts/main.gd" id="1_j70lj"]
 [ext_resource type="PackedScene" uid="uid://c8qrnqsmvbvbw" path="res://scenes/gameplay.tscn" id="1_klgnm"]
 [ext_resource type="PackedScene" uid="uid://dhobi0m2sukes" path="res://scenes/player.tscn" id="2_0ukcc"]
 [ext_resource type="PackedScene" uid="uid://cury3cpqulgmv" path="res://scenes/game_over.tscn" id="2_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://dg43jrc41qvh8" path="res://scenes/enemy.tscn" id="3_nt2wp"]
-[ext_resource type="Script" uid="uid://dqtbcd4thnlly" path="res://scripts/spawn_enemy.gd" id="4_qh04p"]
-[ext_resource type="Script" uid="uid://ckd6pbop11qee" path="res://scripts/spawn_coin.gd" id="5_k8f8b"]
+[ext_resource type="Script" uid="uid://ds1axk0kcd5ig" path="res://scripts/spawn_enemy.gd" id="4_qh04p"]
+[ext_resource type="Script" uid="uid://c41clf7cftnlu" path="res://scripts/spawn_coin.gd" id="5_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://bmjaapsfuni8x" path="res://scenes/coin.tscn" id="6_7vc00"]
-[ext_resource type="Script" uid="uid://cvineqy5kfosf" path="res://scripts/menu.gd" id="10_tdkxd"]
+[ext_resource type="Script" uid="uid://ctvjdimhnwjys" path="res://scripts/spawn_potion.gd" id="10_eb6dy"]
+[ext_resource type="Script" uid="uid://c082cs5ra6mfx" path="res://scripts/menu.gd" id="10_tdkxd"]
 [ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://assets/fonts/font.ttf" id="11_fh3di"]
+[ext_resource type="PackedScene" uid="uid://nsv1whd0yms" path="res://scenes/power_ups/speed.tscn" id="11_trceg"]
+[ext_resource type="PackedScene" uid="uid://brcaolv6js8a1" path="res://scenes/power_ups/health.tscn" id="12_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cij0kf7cjfx0i" path="res://scenes/power_ups/invincible.tscn" id="13_jbj1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ukcc"]
 texture = ExtResource("1_414cb")
@@ -149,6 +153,19 @@ coin_container = NodePath("coin_container")
 
 [node name="coin_container" type="Node2D" parent="spawn_coin"]
 z_index = 1
+
+[node name="spawn_potion" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "potion_container")]
+z_index = 1
+script = ExtResource("10_eb6dy")
+spawn_timer = NodePath("Timer")
+potion_scenes = Array[PackedScene]([ExtResource("13_jbj1t"), ExtResource("11_trceg"), ExtResource("12_jkv2x")])
+potion_container = NodePath("PotionContainer")
+
+[node name="PotionContainer" type="Node2D" parent="spawn_potion"]
+
+[node name="Timer" type="Timer" parent="spawn_potion"]
+wait_time = 5.0
+autostart = true
 
 [node name="menu" type="Node2D" parent="." node_paths=PackedStringArray("pause_menu")]
 process_mode = 3

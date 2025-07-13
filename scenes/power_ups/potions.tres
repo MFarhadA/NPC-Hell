@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cddy8xlgusotk"]
+
+[ext_resource type="Texture2D" uid="uid://dvxommhq2rowp" path="res://assets/images/icon_nb.png" id="1_mrkwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5v3v"]
+atlas = ExtResource("1_mrkwh")
+region = Rect2(672, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrkwh"]
+atlas = ExtResource("1_mrkwh")
+region = Rect2(624, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ohu"]
+atlas = ExtResource("1_mrkwh")
+region = Rect2(656, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mym0w"]
+atlas = ExtResource("1_mrkwh")
+region = Rect2(640, 224, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5v3v")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrkwh")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ohu")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mym0w")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]

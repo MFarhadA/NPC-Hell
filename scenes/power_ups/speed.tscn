@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://nsv1whd0yms"]
+
+[ext_resource type="PackedScene" uid="uid://cxvkryb4khdkq" path="res://scenes/power_ups/potion.tscn" id="1_tcv81"]
+
+[node name="Speed" instance=ExtResource("1_tcv81")]
+potion_type = 1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"green"

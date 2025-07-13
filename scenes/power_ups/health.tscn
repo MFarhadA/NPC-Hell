@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://brcaolv6js8a1"]
+
+[ext_resource type="PackedScene" uid="uid://cxvkryb4khdkq" path="res://scenes/power_ups/potion.tscn" id="1_77gg4"]
+
+[node name="Health" instance=ExtResource("1_77gg4")]
+potion_type = 2
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"red"
